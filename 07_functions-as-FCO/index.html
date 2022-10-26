@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+
+
+        // A programming language is said to have First - class functions 
+        // when functions in that language are treated like any other variable.
+
+
+
+        // Assigning a function to a variable
+        const foo = () => {
+            console.log("foobar")
+        }
+
+        foo() // Invoke it using the variable
+
+
+
+
+
+
+
+        // Callbacks: Passing a function as an argument
+        function sayHello() {
+            return "Hello, "
+        }
+
+        function greeting(helloMessage, name) {
+            console.log(helloMessage() + name)
+        }
+
+        // Pass `sayHello` as an argument to `greeting` function
+        greeting(sayHello, "JavaScript!")
+
+
+
+
+
+
+        // Returning a function
+        function sayHello() {
+            return () => {
+                console.log("Hello!")
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

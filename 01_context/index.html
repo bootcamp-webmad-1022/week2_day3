@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        // Global context: window
+        console.log(this)
+        console.log(this === window)
+
+
+        // Function context: window
+        function sayHi(){
+            console.log('El contexto de una función es', this)
+        }
+        sayHi()
+
+
+        // Method context
+        const person = {
+            name: 'Ger',
+            age: 33,
+            grow1(){
+                this.age++
+                console.log('Ahora tengo', this.age, 'años')
+            },
+            grow2(){          // Bad: nested functions' context is window
+                setInterval(function(){
+                    this.age++
+                    console.log('Ahora tengo', this.age, 'años')
+                }, 1000)
+            },
+            grow3(){          // Solution 1: forbidden nasty shit
+                const that = this
+                setInterval(function(){
+                    that.age++
+                    console.log('Ahora tengo', that.age, 'años')
+                }, 1000)
+            },
+            grow4(){         // Solution 2: .bind() sets a function's context
+                setInterval(function(){
+                    this.age++
+                    console.log('Ahora tengo', this.age, 'años')
+                }.bind(this), 1000)
+            },
+            grow5(){       // Solution 3: arrow functions are not seen by this     
+                setInterval(()=>{
+                    this.age++
+                    console.log('Ahora tengo', this.age, 'años')
+                }, 1000)
+            },
+        }
+
+        // person.grow1()
+        // person.grow2()
+        // person.grow3()
+        // person.grow4()
+        person.grow5()
+
+
+
+    </script>
+</body>
+</html>

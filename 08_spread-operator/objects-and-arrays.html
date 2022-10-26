@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // Merge arrays
+        const birds = ['colibri', 'paloma']
+        const dogs = ['san bernardo', 'chiwawa']
+        const allAnimals = [...birds, 'popino', ...dogs, 'iguana']
+
+
+
+        // Merge objects
+        const carProps = {
+            color: 'green',
+            speed: 300
+        }
+
+        const carSpecs = {
+            brand: 'Audi',
+            ...carProps
+        }
+
+        console.log(carSpecs)
+
+
+
+
+
+
+        // Shallow copy
+        const drinks = ['agua', 'kas']
+        const drinksRealCopy = [...drinks]
+
+
+
+
+    </script>
+</body>
+
+</html>

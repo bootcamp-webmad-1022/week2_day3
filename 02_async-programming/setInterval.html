@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>La función se ha invocado <span>0</span> veces</h1>
+
+    <button>DETENER INTERVALO</button>
+
+    <script>
+
+        let times = 0
+
+        // setInterval() returns the interval ID
+        const intervalId = setInterval(() => {
+            times++
+            document.querySelector('h1 span').innerText = times
+        }, 1000)
+
+
+        // clearInterval() receives an interval ID
+        document.querySelector('button').onclick = () => {
+            console.log('EL INTERVALO CON ID', intervalId, 'SE HA DETENIDO')
+            clearInterval(intervalId)
+        }
+
+    </script>
+</body>
+
+</html>

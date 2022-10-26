@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>¡La función se ejecutará en 5 segundos!</h1>
+
+    <button>Detener cuenta atrás</button>
+
+
+    <script>
+
+        // setTimeout() returns the timeout ID
+        const timeoutId = setTimeout(() => {
+            alert('¡ZAS!')
+        }, 5000)
+
+
+        // clearTimeout() receives an timeout ID
+        document.querySelector('button').onclick = () => {
+            console.log('EL TEMPORIZADOR CON ID', timeoutId, 'SE HA DETENIDO')
+            clearTimeout(timeoutId)
+        }
+
+
+    </script>
+</body>
+
+</html>
